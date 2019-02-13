@@ -7,6 +7,7 @@ To configure environment, Perform following steps.
 	<li> You will need to use "waffle" model for this assignment.</li>
 	<li>Run catkin_make from your catkin_ws. </li>
 	<li>Run source devel/setup.bash from your catkin_ws</li>
+</ol>
 <br>
 <br>
 To start the execution, you will first need to run <b>"server.py"</b>. This will generate a random environment which can be run in Gazebo using launch file <b>"maze.launch"</b>. This will also generate partial PDDL problem file with objects and initial state. You can specify the number of books for each subject with different arguments. 
