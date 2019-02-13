@@ -26,7 +26,7 @@ Your PDDL file should contain the following actions.
 </li>
 </ol>
 <br>
-Apart of above mentioned services, PlanningAPI contains all the services required by your previous search algorithms.
+Apart from above mentioned services, PlanningAPI contains all the services required by your previous search algorithms.
 <br>
 You should use the sfollowing predicates to define the PDDL domain. You can use any other predicates for other relations.
 <ul>    
