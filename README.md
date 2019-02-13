@@ -10,11 +10,12 @@ To configure environment, Perform following steps.
 </ol>
 <br>
 <br>
-To start the execution, you will first need to run <b>"server.py"</b>. This will generate a random environment which can be run in Gazebo using launch file <b>"maze.launch"</b>. This will also generate partial PDDL problem file with objects and initial state. You can specify the number of subjects using the  argument "-sub". 
+To start the execution, you will first need to run <b>"server.py"</b>. This will generate a random environment which can be run in Gazebo using launch file <b>"maze.launch"</b>. This will also generate partial PDDL problem file with objects and initial state. You can specify the number of subjects using the  argument "-sub". To enable the turtlebot3 to move, you will need to run move_tbot3.py 
 <br>
 <ul>
 <li>To run server file, execute <b>rosrun planning server.py</b>
-<li>To launch maze in gazebo, execute <b>roslaunch planning maze.launch</b>
+	<li>To launch maze in gazebo, execute <b>roslaunch planning maze.launch</b></li>
+	<li>To run move_tbot3.py, execute <b>rosrun planning move_tbot3.py</b></li>
 </ul>
 
 Your PDDL file should contain the following actions.
