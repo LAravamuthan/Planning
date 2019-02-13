@@ -1,4 +1,4 @@
-To configure environment, Perform following steps.
+Carry out the following steps to set up the environment for this assignment.
 <ol>
 	<li>Clone this repository to your catkin_ws/src.</li>
 	<li>Copy all the folders from Models/ and paste it to your ~/.gazebo/Models </li>
