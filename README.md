@@ -7,6 +7,7 @@ Carry out the following steps to set up the environment for this assignment.
 	<li> You will need to use "waffle" model for this assignment.</li>
 	<li>Run catkin_make from your catkin_ws. </li>
 	<li>Run source devel/setup.bash from your catkin_ws</li>
+	<li>In catkin_ws/src/Planning/scirpts/server.py change root_path to your catkin_ws/src/Planning. Please use absolute path.</li>
 </ol>
 <br>
 <br>
