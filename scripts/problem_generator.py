@@ -14,6 +14,7 @@ def write_objects(fhandle,object_dict):
 	subject_str = " ".join(sub_name for sub_name in subject_set) + " - subject"
 	fhandle.write("(:objects" + "\n")
 	fhandle.write("tbot3 - robot" + "\n")
+	fhandle.write("tbot3_init_loc - location" + "\n")
 	fhandle.write(book_list_str + "\n")
 	fhandle.write(bin_list_str + "\n")
 	fhandle.write(book_loc_str + "\n")
@@ -36,7 +37,7 @@ def write_init_state(fhandle,object_dict,book_list,book_loc_list,bins_list,bins_
 		fhandle.write("(Bin_Subject {} {})".format(bin_name,object_dict["bins"][bin_name]["subject"].replace(" ","_")) + "\n")
 		fhandle.write("(Bin_Size {} {})".format(bin_name,object_dict["bins"][bin_name]["size"]) + "\n")
 	fhandle.write("(Robot_At tbot3 tbot3_init_loc)" + "\n")
-	fhandle.write("(Empty_Baseket tbot3)"  + "\n")
+	fhandle.write("(Empty_Basket tbot3)"  + "\n")
 	fhandle.write(")" + "\n")
 
 
