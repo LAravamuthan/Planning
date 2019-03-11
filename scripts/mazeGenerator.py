@@ -216,7 +216,7 @@ def generate_blocked_edges(grid_dimension, list_of_number_of_books, seed,  numbe
 		trolly_dict_generator(trollies, trollies_count, size, blocked_list, (x, y), subject_count)
 		add_trolly(f_out, x, y,scale, trollies_count)
 		trollies_count += 1
-		if (trollies_count-1) % 4 == 0:
+		if (trollies_count-1) % 3 == 0:
 			x += 2
 			y = 1
 		else:
@@ -242,6 +242,7 @@ def generate_blocked_edges(grid_dimension, list_of_number_of_books, seed,  numbe
  		json.dump(object_dict, fp)
 
  	mazeInfo = [(0,grid_dimension, "EAST", myscale), blocked_edges]
+ 	print grid_dimension
  	return object_dict, mazeInfo
 
 
