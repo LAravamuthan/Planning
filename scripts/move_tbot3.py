@@ -22,7 +22,7 @@ class moveTbot3:
 		self.pid_subscriber = rospy.Subscriber("/Controller_Status",String,self.callback_pid)
 		self.pose_subscriber = rospy.Subscriber('/odom',Odometry,self.pose_callback)
 		self.status_publisher = rospy.Publisher("/status",String,queue_size = 10)
-		self.free = String(data = "next")
+		self.free = String(data = "Idle")
 		self.rate = rospy.Rate(30)
 		rospy.spin()
 
