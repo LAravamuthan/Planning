@@ -46,7 +46,7 @@ class RobotActionsServer:
 		bin_name = req.bin_name
 		robot_state = (req.x , req.y , req.orientation)
 		if book_name in self.object_dict["books"] and bin_name in self.object_dict["bins"]:
-			if [robot_state[0],robot_state[1]] in self.object_dict["bins"][bin_name]["load_loc"]:
+			if (robot_state[0],robot_state[1]) in self.object_dict["bins"][bin_name]["load_loc"]:
 				if self.object_dict["books"][book_name]["size"] == self.object_dict["bins"][bin_name]["size"]:
 					goal_loc = list(self.object_dict["bins"][bin_name]["loc"])
 					goal_loc[0] = goal_loc[0] + 0.5
@@ -62,7 +62,7 @@ class RobotActionsServer:
 		book_name = req.book_name
 		robot_state = [req.x , req.y ,req.orientation]
 		if book_name in self.object_dict["books"]:
-			if [robot_state[0],robot_state[1]] in self.object_dict["books"][book_name]["load_loc"]:
+			if (robot_state[0],robot_state[1]) in self.object_dict["books"][book_name]["load_loc"]:
 				if self.empty:
 					self.change_state(book_name,robot_state[:2]+[2])
 					self.empty = False
