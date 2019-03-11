@@ -76,7 +76,7 @@ def get_goal_state():
     except rospy.ServiceException,e:
         print "Service call failed: %s"%e
 def get_actions():
-    return ["TurnCW","TurnCCW","MoveF","MoveB"]
+    return ["TurnCW","TurnCCW","MoveF"]
 
 def execute_pick_action(book_name,state):
     rospy.wait_for_service('execute_pick_action')
