@@ -7,8 +7,10 @@ import sys
 import time
 import re
 import json
+from std_msgs.msg import String
 
 root_path = "/home/aravamuthan/catkin_ws/src/Planning/";
+bot = 1;
 
 def is_goal_state(state, g_s):
     if state.x == g_s.x and state.y == g_s.y:
@@ -96,6 +98,10 @@ def driverFunction(actions, books, bins):
             path, current_state = gbfs(i_s, g_s);
             problem.execute_move_action(path);
             i_s = current_state;
+            bot = 1;
+            while(bot):
+                print("bot busy");
+            print("bot free");
         elif strs[0] == "pick":
             print("Picking bock " +  strs[1] + " from " + stringifyState(i_s));
             op = problem.execute_pick_action(strs[1], i_s);
@@ -103,6 +109,10 @@ def driverFunction(actions, books, bins):
             if op < 0:
                 print("counld'nt pick ");
                 return;
+            bot = 1;
+            while (bot):
+                print("bot busy");
+            print("bot free");
         elif strs[0] == "place":
             print("Placing bock " + strs[1] + " at " + stringifyState(i_s));
             print("Placing book at bin " + strs[2]);
@@ -111,13 +121,21 @@ def driverFunction(actions, books, bins):
             if op < 0:
                 print("counld'nt place ");
                 return;
-
+            bot = 1;
+            while (bot):
+                print("bot busy");
+            print("bot free");
         else:
             continue;
 
 
+def callback_pid(data):
+    if data.data == "Idle":
+        bot = 0;
+
+
 if __name__ == "__main__":
-    book_sizes = 2;
+    status_subscriber = rospy.Subscriber("/Controller_Status", String, callback_pid);
     actions = readPlan("PlanH");
     jsonData = readJson(root_path + '/books');
     books = jsonData['books'];
