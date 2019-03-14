@@ -140,7 +140,7 @@ def remove_blocked_edge(req):
 	else:
 		blocked_edge = (location_of_blocked_edge_list[1][0], location_of_blocked_edge_list[1][1], location_of_blocked_edge_list[0][0], location_of_blocked_edge_list[0][1])
 	mazeInfo[1].remove(blocked_edge)
-	return RemoveBlockedEdgeMsg(1)
+	return "1"
 
 def server():
     rospy.Service('get_successor', GetSuccessor, handle_get_successor)

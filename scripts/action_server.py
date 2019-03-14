@@ -36,7 +36,7 @@ class RobotActionsServer:
 		rospy.wait_for_service('remove_blocked_edge')
 		try:
 			remove_edge = rospy.ServiceProxy('remove_blocked_edge',RemoveBlockedEdgeMsg)
-			remove_edge(book_name)
+			_ = remove_edge(book_name)
 		except rospy.ServiceException,e:
 			print "Sevice call failed: %s"%e
 
