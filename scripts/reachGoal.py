@@ -99,9 +99,9 @@ def driverFunction(actions, books, bins):
             problem.execute_move_action(path);
             i_s = current_state;
             bot = 1;
-            while(bot):
-                print("bot busy");
-            print("bot free");
+            # while(bot):
+            #     print("bot busy");
+            # print("bot free");
         elif strs[0] == "pick":
             print("Picking bock " +  strs[1] + " from " + stringifyState(i_s));
             op = problem.execute_pick_action(strs[1], i_s);
@@ -110,9 +110,9 @@ def driverFunction(actions, books, bins):
                 print("counld'nt pick ");
                 return;
             bot = 1;
-            while (bot):
-                print("bot busy");
-            print("bot free");
+            # while (bot):
+            #     print("bot busy");
+            # print("bot free");
         elif strs[0] == "place":
             print("Placing bock " + strs[1] + " at " + stringifyState(i_s));
             print("Placing book at bin " + strs[2]);
@@ -122,9 +122,9 @@ def driverFunction(actions, books, bins):
                 print("counld'nt place ");
                 return;
             bot = 1;
-            while (bot):
-                print("bot busy");
-            print("bot free");
+            # while (bot):
+            #     print("bot busy");
+            # print("bot free");
         else:
             continue;
 
@@ -132,6 +132,7 @@ def driverFunction(actions, books, bins):
 def callback_pid(data):
     if data.data == "Idle":
         bot = 0;
+        print("Idle bhai now");
 
 
 if __name__ == "__main__":
