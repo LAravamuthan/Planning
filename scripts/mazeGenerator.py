@@ -166,7 +166,7 @@ def generate_blocked_edges(grid_dimension, list_of_number_of_books, seed,  numbe
 			flag = np.random.randint(0, 2)
 			if(flag == 0 and ((x+myscale) <= grid_dimension*myscale//2) and ((x, y, x+myscale, y) not in blocked_edges)):
 				blocked_edges.add((x, y, x+myscale, y))
-				offset = np.random.uniform(0, 0.1*myscale)
+				offset = np.random.uniform(0, 0.05*myscale)
 				coords.append((x+myscale/2+offset, y))
 				book_dict_generator(books, bookCounter, size, (x+myscale/2+offset, y), (x, y), (x+myscale, y),  subject_count)
 				add_book(f_out, x+myscale/2+offset, y, book_size_scale, bookCounter)
@@ -174,7 +174,7 @@ def generate_blocked_edges(grid_dimension, list_of_number_of_books, seed,  numbe
 			
 			elif(flag == 1 and ((y+myscale) <= grid_dimension*myscale//2) and ((x, y, x, y+myscale) not in blocked_edges)):
 				blocked_edges.add((x, y, x, y+myscale))
-				offset = np.random.uniform(0, 0.1*myscale)
+				offset = np.random.uniform(0, 0.05*myscale)
 				coords.append((x, y+myscale/2-offset))
 				book_dict_generator(books, bookCounter, size, (x, y+myscale/2-offset), (x, y), (x, y+myscale),  subject_count)
 				add_book(f_out, x, y+myscale/2-offset, book_size_scale, bookCounter)
