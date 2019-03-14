@@ -11,7 +11,7 @@ import problem_generator
 import pickle
 
 
-root_path = "/home/naman/catkin_ws/src/planning/"
+root_path = "/home/aravamuthan/catkin_ws/src/Planning/"
 books = None
 mazeInfo = None
 parser = argparse.ArgumentParser()
