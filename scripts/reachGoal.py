@@ -136,7 +136,7 @@ def callback_pid(data):
 
 
 if __name__ == "__main__":
-    status_subscriber = rospy.Subscriber("/Controller_Status", String, callback_pid);
+    status_subscriber = rospy.Subscriber("/status", String, callback_pid);
     actions = readPlan("PlanH");
     jsonData = readJson(root_path + '/books');
     books = jsonData['books'];
