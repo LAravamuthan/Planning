@@ -98,7 +98,8 @@ def driverFunction(actions, books, bins):
             path, current_state = gbfs(i_s, g_s);
             problem.execute_move_action(path);
             i_s = current_state;
-            bot = 1;
+            global bot;
+            bot =1;
             while(bot):
                 print("bot busy");
             print("bot free");
@@ -109,6 +110,7 @@ def driverFunction(actions, books, bins):
             if op < 0:
                 print("counld'nt pick ");
                 return;
+            global bot;
             bot = 1;
             while (bot):
                 print("bot busy");
@@ -121,6 +123,7 @@ def driverFunction(actions, books, bins):
             if op < 0:
                 print("counld'nt place ");
                 return;
+            global bot;
             bot = 1;
             while (bot):
                 print("bot busy");
