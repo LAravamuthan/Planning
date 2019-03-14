@@ -135,6 +135,7 @@ def driverFunction(actions, books, bins):
 def callback_pid(data):
     print("called with " + data.data);
     if data.data == "Idle":
+        global bot;
         bot = 0;
         print("Idle bhai now");
 
