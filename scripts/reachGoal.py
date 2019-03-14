@@ -137,6 +137,7 @@ def callback_pid(data):
 
 
 if __name__ == "__main__":
+    rospy.init_node('reach_goal', anonymous=True);
     status_subscriber = rospy.Subscriber("/status", String, callback_pid);
     actions = readPlan("PlanH");
     jsonData = readJson(root_path + '/books');
