@@ -132,8 +132,8 @@ def callback(data):
         print("bot Idle");
 
 def plotResults():
-    time_in_seconds_with_delay_for_idling = [0.15, 0.44, 1.12, 3.79];
-    time_in_seconds_without_delay_for_idling = [0.15, 0.44, 1.12, 3.79];
+    time_in_seconds_with_delay_for_idling = [17.32, 27.05, 37.60, 47.15, 58.23, 12.85];
+    time_in_seconds_without_delay_for_idling = [1.21, 3.02, 4.60, 6.48, 8.20, 12.85];
     x_axis = [2, 3, 4, 5, 6, 7];
     plt.plot(x_axis, time_in_seconds_with_delay_for_idling, label="With idle Subcription");
     plt.plot(x_axis, time_in_seconds_without_delay_for_idling, label="Without idle Subcription");
@@ -160,4 +160,6 @@ if __name__ == "__main__":
     print(count)
     print("sleeps is")
     print(toc - tic + count);
+    plotResults();
+
 
