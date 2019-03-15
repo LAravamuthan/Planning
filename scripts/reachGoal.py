@@ -89,10 +89,10 @@ def driverFunction(actions, books, bins):
         if strs[0] == "move":
             goal = strs[3].split("_iloc")[0];
             if goal.find("book") > -1:
-                goalLocation = books[goal]['load_loc'][0];
+                goalLocation = books[goal]['load_loc'][1];
                 g_s = problem.State(goalLocation[0],goalLocation[1],"EAST");
             elif goal.find("trolly") > -1:
-                goalLocation = bins[goal]['load_loc'][0];
+                goalLocation = bins[goal]['load_loc'][1];
                 g_s = problem.State(goalLocation[0], goalLocation[1], "EAST");
             path, current_state = gbfs(i_s, g_s);
             problem.execute_move_action(path);
