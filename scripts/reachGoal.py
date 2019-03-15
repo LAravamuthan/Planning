@@ -130,7 +130,7 @@ def driverFunction(actions, books, bins):
             continue;
 
 
-def callback_pid(data):
+def callback(data):
     print("called with " + data.data);
     if data.data == "Idle":
         global bot;
@@ -140,7 +140,7 @@ def callback_pid(data):
 
 if __name__ == "__main__":
     rospy.init_node('reach_goal', anonymous=True);
-    status_subscriber = rospy.Subscriber("/status", String, callback_pid);
+    status_subscriber = rospy.Subscriber("/status", String, callback);
     actions = readPlan("PlanH");
     jsonData = readJson(root_path + '/books');
     books = jsonData['books'];
