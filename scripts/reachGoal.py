@@ -3,7 +3,6 @@
 import problem
 import heapq
 import rospy
-import sys
 import time
 import re
 import json
@@ -145,7 +144,4 @@ if __name__ == "__main__":
     jsonData = readJson(root_path + '/books');
     books = jsonData['books'];
     bins = jsonData['bins'];
-    #print(books);
-    #print(bins);
     driverFunction(actions, books, bins);
-    plotResults();
