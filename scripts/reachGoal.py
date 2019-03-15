@@ -146,4 +146,5 @@ if __name__ == "__main__":
     bins = jsonData['bins'];
     driverFunction(actions, books, bins);
     toc = time.clock();
-    print("take taken: " + toc - tic);
+    print("take taken: ");
+    print(toc - tic);
