@@ -87,6 +87,7 @@ def driverFunction(actions, books, bins):
     for action in actions:
         strs = action.split();
         if strs[0] == "move":
+            print("moving");
             goal = strs[3].split("_iloc")[0];
             if goal.find("book") > -1:
                 goalLocation = books[goal]['load_loc'][0];
@@ -97,14 +98,14 @@ def driverFunction(actions, books, bins):
             path, current_state = gbfs(i_s, g_s);
             problem.execute_move_action(path);
             i_s = current_state;
-            #time.sleep(2);
+            time.sleep(1);
         elif strs[0] == "pick":
             print("Picking bock " +  strs[1] + " from " + stringifyState(i_s));
             op = problem.execute_pick_action(strs[1], i_s);
             if op < 0:
                 print("counld'nt pick ");
                 return;
-            #time.sleep(2)
+            time.sleep(1);
         elif strs[0] == "place":
             print("Placing bock " + strs[1] + " at " + stringifyState(i_s));
             print("Placing book at bin " + strs[2]);
@@ -112,7 +113,7 @@ def driverFunction(actions, books, bins):
             if op < 0:
                 print("counld'nt place ");
                 return;
-            #time.sleep(2);
+            time.sleep(1);
         else:
             continue;
 
