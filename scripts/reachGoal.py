@@ -10,6 +10,7 @@ import json
 from std_msgs.msg import String
 
 root_path = "/home/aravamuthan/catkin_ws/src/Planning/";
+
 bot = 1;
 
 def is_goal_state(state, g_s):
@@ -100,8 +101,7 @@ def driverFunction(actions, books, bins):
             i_s = current_state;
             global bot;
             bot =1;
-            while bot:
-                time.sleep(2);
+            time.sleep(2);
             print("bot free");
         elif strs[0] == "pick":
             print("Picking bock " +  strs[1] + " from " + stringifyState(i_s));
@@ -112,8 +112,7 @@ def driverFunction(actions, books, bins):
                 return;
             global bot;
             bot = 1;
-            while bot:
-                time.sleep(2)
+            time.sleep(2)
             print("bot free");
         elif strs[0] == "place":
             print("Placing bock " + strs[1] + " at " + stringifyState(i_s));
@@ -125,8 +124,7 @@ def driverFunction(actions, books, bins):
                 return;
             global bot;
             bot = 1;
-            while bot:
-                time.sleep(2);
+            time.sleep(2);
             print("bot free");
         else:
             continue;
