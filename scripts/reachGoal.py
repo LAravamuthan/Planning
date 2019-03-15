@@ -8,6 +8,7 @@ import time
 import re
 import json
 from std_msgs.msg import String
+import matplotlib.pyplot as plt
 
 root_path = "/home/aravamuthan/catkin_ws/src/Planning/";
 
@@ -90,8 +91,6 @@ def driverFunction(actions, books, bins):
             goal = strs[3].split("_iloc")[0];
             if goal.find("book") > -1:
                 goalLocation = books[goal]['load_loc'][0];
-                print(goalLocation[0])
-                print(goalLocation[1])
                 g_s = problem.State(goalLocation[0],goalLocation[1],"EAST");
             elif goal.find("trolly") > -1:
                 goalLocation = bins[goal]['load_loc'][0];
@@ -99,33 +98,22 @@ def driverFunction(actions, books, bins):
             path, current_state = gbfs(i_s, g_s);
             problem.execute_move_action(path);
             i_s = current_state;
-            global bot;
-            bot =1;
             time.sleep(2);
-            print("bot free");
         elif strs[0] == "pick":
             print("Picking bock " +  strs[1] + " from " + stringifyState(i_s));
             op = problem.execute_pick_action(strs[1], i_s);
-            print(op);
             if op < 0:
                 print("counld'nt pick ");
                 return;
-            global bot;
-            bot = 1;
             time.sleep(2)
-            print("bot free");
         elif strs[0] == "place":
             print("Placing bock " + strs[1] + " at " + stringifyState(i_s));
             print("Placing book at bin " + strs[2]);
             op = problem.execute_place_action(strs[1], strs[2], i_s);
-            print(op);
             if op < 0:
                 print("counld'nt place ");
                 return;
-            global bot;
-            bot = 1;
             time.sleep(2);
-            print("bot free");
         else:
             continue;
 
@@ -135,7 +123,19 @@ def callback(data):
     if data.data == "Idle":
         global bot;
         bot = 0;
-        print("Idle bhai now");
+        print("bot Idle");
+
+def plotResults():
+    time_in_seconds_with_delay_for_idling = [0.15, 0.44, 1.12, 3.79];
+    time_in_seconds_without_delay_for_idling = [0.15, 0.44, 1.12, 3.79];
+    x_axis = [2, 3, 4, 5, 6, 7];
+    plt.plot(x_axis, time_in_seconds_with_delay_for_idling, label="With idle Subcription");
+    plt.plot(x_axis, time_in_seconds_without_delay_for_idling, label="Without idle Subcription");
+    plt.legend(loc='upper left');
+    plt.xlabel('subjects');
+    plt.ylabel("time taken(sec)");
+    plt.show();
+
 
 
 if __name__ == "__main__":
@@ -148,3 +148,4 @@ if __name__ == "__main__":
     #print(books);
     #print(bins);
     driverFunction(actions, books, bins);
+    plotResults();
