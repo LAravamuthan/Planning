@@ -100,8 +100,8 @@ def driverFunction(actions, books, bins):
             i_s = current_state;
             global bot;
             bot =1;
-            while(bot):
-                print("bot busy");
+            while bot:
+                time.sleep(2);
             print("bot free");
         elif strs[0] == "pick":
             print("Picking bock " +  strs[1] + " from " + stringifyState(i_s));
@@ -112,8 +112,8 @@ def driverFunction(actions, books, bins):
                 return;
             global bot;
             bot = 1;
-            while (bot):
-                print("bot busy");
+            while bot:
+                time.sleep(2)
             print("bot free");
         elif strs[0] == "place":
             print("Placing bock " + strs[1] + " at " + stringifyState(i_s));
@@ -125,8 +125,8 @@ def driverFunction(actions, books, bins):
                 return;
             global bot;
             bot = 1;
-            while (bot):
-                print("bot busy");
+            while bot:
+                time.sleep(2);
             print("bot free");
         else:
             continue;
