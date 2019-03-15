@@ -140,7 +140,7 @@ def plotResults():
 if __name__ == "__main__":
     rospy.init_node('reach_goal', anonymous=True);
     status_subscriber = rospy.Subscriber("/status", String, callback);
-    actions = readPlan("PlanH");
+    actions = readPlan("PlanH2");
     jsonData = readJson(root_path + '/books');
     books = jsonData['books'];
     bins = jsonData['bins'];
