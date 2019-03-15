@@ -12,6 +12,7 @@ import matplotlib.pyplot as plt
 root_path = "/home/aravamuthan/catkin_ws/src/Planning/";
 
 bot = 1;
+count = 0;
 
 def is_goal_state(state, g_s):
     if state.x == g_s.x and state.y == g_s.y:
@@ -99,6 +100,8 @@ def driverFunction(actions, books, bins):
             problem.execute_move_action(path);
             i_s = current_state;
             time.sleep(1);
+            global count;
+            count = count + 1;
         elif strs[0] == "pick":
             print("Picking bock " +  strs[1] + " from " + stringifyState(i_s));
             op = problem.execute_pick_action(strs[1], i_s);
@@ -106,6 +109,8 @@ def driverFunction(actions, books, bins):
                 print("counld'nt pick ");
                 return;
             time.sleep(1);
+            global count;
+            count = count + 1;
         elif strs[0] == "place":
             print("Placing bock " + strs[1] + " at " + stringifyState(i_s));
             print("Placing book at bin " + strs[2]);
@@ -114,6 +119,8 @@ def driverFunction(actions, books, bins):
                 print("counld'nt place ");
                 return;
             time.sleep(1);
+            global count;
+            count = count + 1;
         else:
             continue;
 
@@ -149,3 +156,8 @@ if __name__ == "__main__":
     toc = time.clock();
     print("take taken: ");
     print(toc - tic);
+    print("take taken with ")
+    print(count)
+    print("sleeps is")
+    print(toc - tic + count);
+
