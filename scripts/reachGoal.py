@@ -118,7 +118,6 @@ def driverFunction(actions, books, bins):
 
 
 def callback(data):
-    print("called with " + data.data);
     if data.data == "Idle":
         global bot;
         bot = 0;
@@ -147,4 +146,4 @@ if __name__ == "__main__":
     bins = jsonData['bins'];
     driverFunction(actions, books, bins);
     toc = time.clock();
-    print(toc - tic);
+    print("take taken: " + toc - tic);
