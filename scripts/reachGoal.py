@@ -138,6 +138,7 @@ def plotResults():
 
 
 if __name__ == "__main__":
+    tic = time.clock();
     rospy.init_node('reach_goal', anonymous=True);
     status_subscriber = rospy.Subscriber("/status", String, callback);
     actions = readPlan("PlanH2");
@@ -145,3 +146,5 @@ if __name__ == "__main__":
     books = jsonData['books'];
     bins = jsonData['bins'];
     driverFunction(actions, books, bins);
+    toc = time.clock();
+    print(toc - tic);
