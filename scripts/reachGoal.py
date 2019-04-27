@@ -148,18 +148,23 @@ if __name__ == "__main__":
     tic = time.clock();
     rospy.init_node('reach_goal', anonymous=True);
     status_subscriber = rospy.Subscriber("/status", String, callback);
-    actions = readPlan("PlanH2");
-    jsonData = readJson(root_path + '/books');
-    books = jsonData['books'];
-    bins = jsonData['bins'];
-    driverFunction(actions, books, bins);
-    toc = time.clock();
-    print("take taken: ");
-    print(toc - tic);
-    print("take taken with ")
-    print(count)
-    print("sleeps is")
-    print(toc - tic + count);
+    n = 0;
+    while n < 7:
+	    strn = str(n+1)  
+	    actions = readPlan("PlanH" + strn);
+	    jsonData = readJson(root_path + '/books');
+	    books = jsonData['books'];
+	    bins = jsonData['bins'];
+	    driverFunction(actions, books, bins);
+	    toc = time.clock();
+	    print("no. of subjects " + strn);
+	    print("take taken: ");
+	    print(toc - tic);
+	    print("take taken with ")
+	    print(count)
+	    print("sleeps is")
+	    print(toc - tic + count);
+	    n = n +1;	
     plotResults();
 
 
